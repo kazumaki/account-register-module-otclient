@@ -1,0 +1,38 @@
+CreateCharacterWindow < MainWindow
+  !text: tr('Character Creation')
+  size: 250 130
+
+CreateCharacterWindow
+  id: createCharacterWindow
+
+  MenuLabel
+    !text: tr('Character name')
+    anchors.left: parent.left
+    anchors.top: parent.top
+    text-auto-resize: true
+
+  TextEdit
+    id: characterNameTextEdit
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-top: 2
+
+  HorizontalSeparator
+    id: separator
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: next.top
+    margin-bottom: 10
+
+  Button
+    !text: tr('Create')
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    @onClick: CreateCharacter.doCreateCharacter()
+
+  Button
+    !text: tr('Cancel')
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    @onClick: CreateCharacter.doOpenCharacterList()
